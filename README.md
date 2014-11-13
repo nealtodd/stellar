@@ -1,6 +1,11 @@
 Stellar - Fast database snapshot and restore tool for development.
 =======
 
+[![Build Status](https://travis-ci.org/fastmonkeys/stellar.svg?branch=master)](https://travis-ci.org/fastmonkeys/stellar)&nbsp;
+![](http://img.shields.io/pypi/dm/stellar.svg)&nbsp;
+![](http://img.shields.io/pypi/v/stellar.svg)
+
+
 Stellar allows you to quickly restore database when you are e.g. writing database migrations, switching branches or messing with SQL. PostgreSQL and MySQL are supported.
 
 ![Screenshot of Stellar terminal window](http://imgur.com/0fXXdcx.png)
@@ -47,3 +52,12 @@ How to restore from a snapshot
 -------
 
 ```$ stellar restore SNAPSHOT_NAME```
+
+Common issues
+-------
+
+````
+sqlalchemy.exc.OperationalError: (OperationalError) (1044, u"Access denied for user 'my_db_username'@'localhost' to database 'stellar_data'") "CREATE DATABASE stellar_data CHARACTER SET = 'utf8'" ()
+`````
+
+Make sure you have the rights to create new databases. See [Issue 10](https://github.com/fastmonkeys/stellar/issues/10) for discussion
